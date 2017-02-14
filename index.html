@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Echo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Echo">
+<meta property="og:url" content="http://echogong.club/index.html">
+<meta property="og:site_name" content="Echo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Echo">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Echo" rel="home">Echo</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">文章</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-canvas使用方式以及相关属性" class="post-canvas使用方式以及相关属性 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/02/14/canvas使用方式以及相关属性/">canvas使用方式以及相关属性</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2017/02/14/canvas使用方式以及相关属性/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/2017/02/14/canvas使用方式以及相关属性/" data-id="ciz4z83s600008gofxhyo4b85" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li><p>Canvas绘制会用到的方法：<br>1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点<br>2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线<br>3、ctx.stroke():将虚描的内容使用实线绘制出来。<br>4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.<br>5、fill会将起始点（moveTo）和结束点(最后一个lineTo)连起来，然后在形成的图形中填充黑色。<br>6、ctx.closePath():将绘图的起始点绘图的结束点进行连接，最后闭合图形。<br>7、ctx.beginPath():开启新路径。<br>8、ctx.setLineDash([数组]) :设置虚线的数组，当划线的时候采用这个数组中的数字作为虚线的数据<br>9、ctx.getLineDash():获取虚线的数组</p>
+</li>
+<li><p>Canvas绘制使用到的属性：<br>1、ctx.lineWidth = 10;  设置绘图的线宽<br>2、ctx.lineCap = “round”;  设置线帽<br>3、ctx.lineJoin = ‘round’;  设置线拐<br>4、ctx.lineDashOffset = 值;  设置虚线的缩进<br>5、ctx.strokeStyle = ‘red’;  设置描边的颜色<br>6、ctx.fillStyle =’green’; 设置填充的颜色</p>
+</li>
+<li><p>非零环绕原则：<br>如果想要对一块区域进行填充，我们需要使用非零环绕原则来判断是否进行填充<br>在这一块区域随便选一个点，随便向任意方向拉出去到外面的一个L线，<br>此时如果画的图的线条穿过L线时是顺时针的，那么就记做+1<br>此时如果画的图的线条穿过L线时是逆时针的，那么就记做-1<br>最后把所有记录的值进行求和，如果为0，代表不填充，其他情况要填充。</p>
+</li>
+<li><p>绘制矩形的三种方法<br>1、ctx.rect(x,y,width,height);  //只会描边，所以必须配合stroke()或fill()。<br>   ctx.stroke();<br>2、ctx.strokeRect(x,y,width,height);  //画一个描边矩形<br>3、ctx.fillRect(x,y,width,height);  //画一个填充矩形</p>
+</li>
+<li><p>清除矩形区域：<br>clearRect(x,y,width,height);</p>
+</li>
+<li><p>清理整块画布内容:<br>1、ctx.c0learRect(0,0,canvas.width,canvas.height);<br>2、canvas.width = canvas.width;//当设置canvas的宽度或者高度的时候，会刷新canvas画布，此时画布中原有的绘制内容，全部都会被刷新（清除）。</p>
+</li>
+<li><p>画圆弧<br>ctx.arc(圆心的x坐标，圆心的y坐标，圆的半径，圆开始的弧度，圆结束的弧度，按照顺时针或逆时针的方向进行绘制);<br>零度角位于圆心水平向右的位置，顺时针为正方向（正弧度），逆时针为负方向（负弧度）。</p>
+</li>
+<li><p>绘制文本<br>1、strokeText(文本字符串,x,y)<br>2、fillText(文本字符串,x,y)<br>默认情况下，文本的左下角对齐x,y坐标点，可以通过font属性来设置文本的大小和字体：ctx.font = ‘字体大小 字体’;<br>文本对其方式：</p>
+<pre><code>A.水平对齐 ctx.textalign  =  &apos;left&apos;,&apos;center&apos;,&apos;right&apos;;
+</code></pre><p> B.基线对象 ctx.textBaseline  = ‘top’,’middle’,’bottom’;</p>
+</li>
+<li><p>画图片<br>drawImage(image,x,y)</p>
+</li>
+<li><p>计时器模型<br>var id = setInterval(function(){<br>   if(){</p>
+<p>   }else{</p>
+<p>   }<br>});</p>
+</li>
+<li><p>变换的概念<br>计算机是利用坐标进行绘图；<br>变换就是一套数学公式，可以记录坐标轴的变化方式；<br>利用坐标抽变换可以绘制出根据不同坐标轴特点形成的图形。<br>canvas变换：<br>   ctx.translate()  平移<br>   ctx.rotate()     旋转<br>   ctx.scale()      伸缩<br>状态保存:save()  状态恢复:restore()</p>
+</li>
+<li><p>konva:是一个完全面向对象的框架,他所有的内容都是通过对象操作完成。<br>  1、3个主要必须用到的对象:</p>
+<pre><code>1)、舞台对象（Stage）
+2)、层对象（Layer）
+3)、矩形对象，圆形对象
+</code></pre><p> 2、使用konva来绘制图形的步骤</p>
+<pre><code>A.引入konva.js库文件
+B.创建一个舞台对象：var stage = 
+     new Konva.Stage({ width:600,height:400,container:divid });
+C.创建一个层对象：var layer = new Konva.Layer();
+D.创建图形对象：var juxing = 
+ new Konva.Rect({x:10,y:10,width:100,height:100,fill:pink});
+E.要把图形对象放到层里去，层要放到舞台对象里去
+</code></pre><p> layer.add(juxing);<br> stage.add(layer);<br> 3、重绘：draw()</p>
+<pre><code>如果将层添加到了舞台上之后，又在层上绘制了一些别的图形，为了让后面绘制的图形可以显示出来我们必须要重绘一次层。例：layer.draw();
+</code></pre></li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/14/canvas使用方式以及相关属性/">
+    <time datetime="2017-02-14T03:30:34.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas-html5/">canvas html5</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-函数的四种调用模式" class="post-函数的四种调用模式 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/14/函数的四种调用模式/">函数的四种调用模式</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2016/12/14/函数的四种调用模式/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/2016/12/14/函数的四种调用模式/" data-id="ciz4z83sm00048gof5u4l0vrk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><strong>函数模式</strong></p>
+<ol>
+<li>函数的定义方式；<br>1）声明式<br>2）表达式式<br>3）Function</li>
+<li>独立调用的就是函数(函数名（参数）)；</li>
+<li>this表示的是全局对象；</li>
+<li>任何自调用函数都是函数模式。</li>
+</ol>
+<p><strong>方法调用模式</strong></p>
+<ol>
+<li>区分方式<br> 方法本身就是函数，但方法不是单独独立的调用，而是通过一个对象引导调用（通过宿主对象来调用函数）；<br> 对象.方法（参数）<br> 数组<a href="">n</a>;  ==&gt;this是数组对象</li>
+<li>this表示的是引导方法的对象<br>var length = 10;<br>function fn(){<br>console.log(this,length);<br>}<br>var obj = {<br>length:5,<br>method:function(){<pre><code>fn();
+arguments[0]();
+</code></pre>}<br>};<br>obj.method(fn,0);</li>
+</ol>
+<p><strong>构造器（构造函数、构造方法）模式</strong></p>
+<ul>
+<li>区分<br> 使用new关键字引导</li>
+<li>执行步骤<br> var p = new Person();<br> new是一个专门的运算符，专门用来创建对象，创建出来的对象传递给构造函数的this利用构造函数对其初始化。</li>
+<li><p>返回值<br> 如果不写return语句，那么构造函数默认返回this；<br> 如果在构造函数中写上return语句，并紧跟基本类型，就忽略返回数据；function Person(){<br> return;<br> this.age=20;<br>}<br>var p1=new Person();<br>console.log(p1);  //返回Person(){}</p>
+<p> 如果在构造函数中写上return语句，并紧跟引用类型，那么构造函数返回该引用类型数据，而忽略this。<br> 如果调用构造函数的时候，构造函数没有参数，圆括号是可以省略的。比如：var p1 = new Person;   </p>
+</li>
+<li>小结<br>1）如果构造函数没有参数，可以省略圆括号<br>2）如果希望创建对象并直接调用其方法<pre><code>可以省略调整结构性的圆括号
+如果要省略构造函数的圆括号，就必须添加结构性的圆括号
+</code></pre></li>
+</ul>
+<p><strong>上下文模式（借调）</strong><br>环境调用模式 ==》 在不同环境下的不同调用模式，简单的说就是一种格式，可以实现函数模式与方法模式</p>
+<ol>
+<li>语法<br>1)call形式：函数名.call（…）;<br>  在使用call调用的时候，函数参数必须以数组的形式存在，但是有些时候数组封装比较复杂，所以引入call调用与apply完全相同，唯一不同的是参数不需要使用数组。<br>2）apply形式：函数名.apply(…);<br>   apply使用的语法结构：<br>让函数以函数模式调用：<pre><code>   foo.apply(null)或foo.apply()
+让函数以方法调用模式调用，需要提供一个宿主对象：
+    foo.apply(o)；//该方法调用，不会污染宿主对象，不必要宿主对象，必须包含该方法。
+</code></pre>两种形式功能完全一样，唯一不同的是参数的形式。</li>
+<li><p>用法<br>存在上下文调用的目的是为了实现借用方法。<br>function foo(){console.log(this);}<br>var o = {name:’jim’};<br>foo();    //函数调用<br>o.func = foo;   //方法调用<br>o.func();</p>
+</li>
+<li><p>带有参数的函数实现上下文调用<br>function foo(num1,num2){</p>
+<pre><code>console.log(this);
+return num1+num2;
+</code></pre><p>}<br>函数调用模式:<br>  var res1 = foo(123.567);<br>方法调用模式:<br>  var o = {name:’jim’};<br>  o.func = foo;<br>  var res2 = o.func(123,567);<br>使用apply进行调用，如果函数是带参数的，apply的第一个参数要么是null，要么是对象。如果null就是函数调用，如果对象就是方法对象，该对象就是宿主对象，后面紧跟一个数组参数，将函数放在参数依次放在数组中。<br>例如：函数模式 foo（123,567）<br> apply   foo.apply（null,[123,567]）</p>
+</li>
+</ol>
+<p><strong>call和apply方法效果都是一样的，都可以实现调用</strong></p>
+<ul>
+<li>函数名.apply（宿主对象，[参数1，参数2，…]）;</li>
+<li>函数名.call（this，参数1，参数2，…，）；</li>
+</ul>
+<p><strong>函数中的this</strong><br><em>函数中的this是由调用函数的模式来决定的<br>   1、函数调用模式  this：window<br>   2、方法调用模式  this：调用方法的对象<br>   3、构造器调用模式  this：new出来的空对象<br>   4、上下文（借调）模式  使用函数调用模式，this就是window<br>                         使用方法调用函数this就是宿主对象；<br><strong>利用构造函数实现继承(重点)</strong><br>function Car(name,type){<br>   this.name=name;<br>   this.type=typt;<br> }<br> function BMW (name,type,price){<br>    Car.call(this,name,type);<br>    this.prce = price;<br>}<br> <em>*bind调用</em></em><br> 1)bind方法：给函数绑定一个对象，当我们调用函数的时候，好像就是在用这个对象调用这个函数一样。例如：var fix = {name,’fix’};<br>                var  fn = foo.bind(fix);<br>                function foo(){<br>                console.log(this);<br>               }<br>               fn(); //相当于fix.foo()<br>  bind是函数绑定对象的一种用法，函数本身就是可以调用，但是如果想要作为方法调用，就必须传入宿主对象，并且使用call或apply形式。<br>  bind使得函数可以与某一对象绑定起来，那么在调用函数的时候，就好像是该对象在调用方法。<br>  语法：函数.bind（对象）<br>2)Object.prototype的成员<br>  1)constructor<br>  2)hasOwnProperty，判断该属性是否为自己提供的<br>  3）propertyIsEnumerable 判断属性是否可以枚举<br>  4）isPrototypeOf 判断是否为原型对象</p>
+<p><strong>包装对象</strong><br>   基本数据类型理论上应该不包含方法，但是在js中为了更好的使用数据，为三个基本类型提供了相应的对象Number、String、Boolean<br>   基本数据转换成包装类型：基本数据.方法（）；<br>                  apply，call进行借调的时候<br>   转换过程中，当调用方法的时候，创建一个包装类型包装基本数据，然后调用方法，最后返回结果，删除包装类型的对象。<br><strong>getter和setter的语法糖</strong><br>  语法糖：为了方便开发而给出的语法结构<br>  语法结构：function fn(){<br>       var name;<br>       return{<br>          get name(){return num；}，<br>          set name(v){num=v}<br>       }<br>   }<br>   var obj = fn();<br>   obj.name;   //调用里面的name方法<br><strong>ES5扩展</strong></p>
+<ol>
+<li>部分数组方法<br> 1）forEach 遍历数组<pre><code>语法：要遍历的目标数组名.forEach（function(索引值，元素){}）;
+</code></pre> 2)map 映射，返回一个数组，数组的每一个元素就是map函数中fn的返回值。原来数组中有几个元素，映射完了还是那几个元素。<pre><code>语法：数组.map(fn);
+</code></pre> 3)filter   筛选<pre><code>语法：数组.filter（function（索引值，元素）{return true/false}）;(元素值可以省略)
+</code></pre> 4)some  逻辑判断 数组中至少有一个数据符合要求就返回true否则就返回false（了解。不是很常用）<br> 语法：var istrue = arr.some(function(v){return typeof = ‘number’;});(v是索引值)（了解。不是很常用）<br> 5)every 逻辑判断 必须满足所有元素都符合要求才会返回true<br> 6)indexOf 在数组中查找该元素，如果含有该元素，返回元素需要（索引），否则返回-1；<br> 7)lastIndexOf  从右往左找，功能与indexOf一样</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/14/函数的四种调用模式/">
+    <time datetime="2016-12-14T03:16:23.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-面向对象/">javascript 面向对象</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-webpack常用命令行" class="post-webpack常用命令行 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/13/webpack常用命令行/">webpack常用命令行</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2016/12/13/webpack常用命令行/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/2016/12/13/webpack常用命令行/" data-id="ciz4z83se00028gofkkgu81d6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>webpack 核心程序</li>
+<li>webpack-dev-server 开发服务器 刷新页面模式</li>
+<li>webpack-merge 合并设定使用(webpack.config.js)</li>
+<li>css-loader 编译css</li>
+<li>style-loader把编译后的css整合进html</li>
+<li>file-loader 编译文件资源</li>
+<li>url-loader 编译汇入文件类型的资源，把文件转换成base64等</li>
+<li>babel-loader 编译处理汇入ES2015类型的文件</li>
+<li>babel-plugin-transform-runtime:polyfiling套件(依赖babel-runtime)</li>
+<li>babel-presetes2015:es2015</li>
+<li>babel-preset-stage-0:开启草稿阶段的功能</li>
+<li>babel-runtime:ES2015+的支持helpers,polyfilling函数库</li>
+<li>vue-html-loader 编译vue的template部分</li>
+<li>vue-style-loader 编译vue样式部分</li>
+<li>vue-hot-reload-api:Hot reload API for vue components</li>
+<li>vue-loader 编译汇入vue组件</li>
+<li>url-loader用于在js中加载png/jpg格式的文件</li>
+<li>css/style loader用于加载css文件</li>
+<li>less-loader加载器是将less编译成css文件- </li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/13/webpack常用命令行/">
+    <time datetime="2016-12-13T13:18:16.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-markdown基本语法" class="post-markdown基本语法 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/0201/10/14/markdown基本语法/">markdown基本语法</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/0201/10/14/markdown基本语法/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/0201/10/14/markdown基本语法/" data-id="ciz4z83ss00058gofrhb2znkg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>标题：文字开头加“#”，一共分为1~6级，1级标题字体最大；<br>块注释：文字开头加“&gt;”；<br>斜体：文字两端使用1个”<em>“或者”-“夹起来；<br>粗体：文字两端使用2个”</em>“或者”-“夹起来；<br>无序列表：文字开头添加“+”或“and-”；<br>有序列表：数字后面跟上句号；<br>链接：内联方式，This is an example link<br>      引用方式，[google][1]<br>图片：内联方式：!<a href="图片路径 “title”">alt text</a><br>     引用方式： ![alt text][id]或[id]:图片路径 “title”<br>HTML代码：简单的代码块:<blockquote><br>         大片的文字：teb和四个空格<br>注脚：hello[^hello]或[^hello]:hi<br>下划线：空白行下方添加三条“-”横线</blockquote></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/0201/10/14/markdown基本语法/">
+    <time datetime="0201-10-14T03:02:57.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/14/canvas使用方式以及相关属性/">canvas使用方式以及相关属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/函数的四种调用模式/">函数的四种调用模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/13/webpack常用命令行/">webpack常用命令行</a>
+          </li>
+        
+          <li>
+            <a href="/0201/10/14/markdown基本语法/">markdown基本语法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas-html5/">canvas html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-面向对象/">javascript 面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/canvas-html5/" style="font-size: 10px;">canvas html5</a> <a href="/tags/javascript-面向对象/" style="font-size: 10px;">javascript 面向对象</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 echo gong
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="webpack 核心程序
+webpack-dev-server 开发服务器 刷新页面模式
+webpack-merge 合并设定使用(webpack.config.js)
+css-loader 编译css
+style-loader把编译后的css整合进html
+file-loader 编译文件资源
+u" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>webpack常用命令行 | Echo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="webpack 核心程序
+webpack-dev-server 开发服务器 刷新页面模式
+webpack-merge 合并设定使用(webpack.config.js)
+css-loader 编译css
+style-loader把编译后的css整合进html
+file-loader 编译文件资源
+url-loader 编译汇入文件类型的资源，把文件转换成base64等
+babel-loader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack常用命令行">
+<meta property="og:url" content="http://echogong.club/2016/12/13/webpack常用命令行/index.html">
+<meta property="og:site_name" content="Echo">
+<meta property="og:description" content="webpack 核心程序
+webpack-dev-server 开发服务器 刷新页面模式
+webpack-merge 合并设定使用(webpack.config.js)
+css-loader 编译css
+style-loader把编译后的css整合进html
+file-loader 编译文件资源
+url-loader 编译汇入文件类型的资源，把文件转换成base64等
+babel-loader">
+<meta property="og:updated_time" content="2017-02-14T03:26:16.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack常用命令行">
+<meta name="twitter:description" content="webpack 核心程序
+webpack-dev-server 开发服务器 刷新页面模式
+webpack-merge 合并设定使用(webpack.config.js)
+css-loader 编译css
+style-loader把编译后的css整合进html
+file-loader 编译文件资源
+url-loader 编译汇入文件类型的资源，把文件转换成base64等
+babel-loader">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Echo" rel="home">Echo</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">文章</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-webpack常用命令行" class="post-webpack常用命令行 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      webpack常用命令行
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2016/12/13/webpack常用命令行/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/2016/12/13/webpack常用命令行/" data-id="ciz4z83se00028gofkkgu81d6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>webpack 核心程序</li>
+<li>webpack-dev-server 开发服务器 刷新页面模式</li>
+<li>webpack-merge 合并设定使用(webpack.config.js)</li>
+<li>css-loader 编译css</li>
+<li>style-loader把编译后的css整合进html</li>
+<li>file-loader 编译文件资源</li>
+<li>url-loader 编译汇入文件类型的资源，把文件转换成base64等</li>
+<li>babel-loader 编译处理汇入ES2015类型的文件</li>
+<li>babel-plugin-transform-runtime:polyfiling套件(依赖babel-runtime)</li>
+<li>babel-presetes2015:es2015</li>
+<li>babel-preset-stage-0:开启草稿阶段的功能</li>
+<li>babel-runtime:ES2015+的支持helpers,polyfilling函数库</li>
+<li>vue-html-loader 编译vue的template部分</li>
+<li>vue-style-loader 编译vue样式部分</li>
+<li>vue-hot-reload-api:Hot reload API for vue components</li>
+<li>vue-loader 编译汇入vue组件</li>
+<li>url-loader用于在js中加载png/jpg格式的文件</li>
+<li>css/style loader用于加载css文件</li>
+<li>less-loader加载器是将less编译成css文件- </li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/13/webpack常用命令行/">
+    <time datetime="2016-12-13T13:18:16.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/12/14/函数的四种调用模式/" rel="prev"><span class="meta-nav">←</span> 函数的四种调用模式</a></span>
+    
+    
+        <span class="nav-next"><a href="/0201/10/14/markdown基本语法/" rel="next">markdown基本语法 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-webpack常用命令行" data-title="webpack常用命令行" data-url="http://echogong.club/2016/12/13/webpack常用命令行/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:'true'};
+    (function() {
+	  var ds = document.createElement('script');
+	  ds.type = 'text/javascript';ds.async = true;
+	  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	  ds.charset = 'UTF-8';
+	  (document.getElementsByTagName('head')[0]
+	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- 多说公共JS代码 end -->
+</section>
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/14/canvas使用方式以及相关属性/">canvas使用方式以及相关属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/函数的四种调用模式/">函数的四种调用模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/13/webpack常用命令行/">webpack常用命令行</a>
+          </li>
+        
+          <li>
+            <a href="/0201/10/14/markdown基本语法/">markdown基本语法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas-html5/">canvas html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-面向对象/">javascript 面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/canvas-html5/" style="font-size: 10px;">canvas html5</a> <a href="/tags/javascript-面向对象/" style="font-size: 10px;">javascript 面向对象</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 echo gong
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Canvas绘制会用到的方法：1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线3、ctx.stroke():将虚描的内容使用实线绘制出来。4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.5、f" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>canvas使用方式以及相关属性 | Echo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Canvas绘制会用到的方法：1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线3、ctx.stroke():将虚描的内容使用实线绘制出来。4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.5、fill会将起始点（moveTo）和结束点(最后一个lineTo)连起来，然后在形成的图形中填充黑色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas使用方式以及相关属性">
+<meta property="og:url" content="http://echogong.club/2017/02/14/canvas使用方式以及相关属性/index.html">
+<meta property="og:site_name" content="Echo">
+<meta property="og:description" content="Canvas绘制会用到的方法：1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线3、ctx.stroke():将虚描的内容使用实线绘制出来。4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.5、fill会将起始点（moveTo）和结束点(最后一个lineTo)连起来，然后在形成的图形中填充黑色">
+<meta property="og:updated_time" content="2017-02-14T03:35:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas使用方式以及相关属性">
+<meta name="twitter:description" content="Canvas绘制会用到的方法：1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线3、ctx.stroke():将虚描的内容使用实线绘制出来。4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.5、fill会将起始点（moveTo）和结束点(最后一个lineTo)连起来，然后在形成的图形中填充黑色">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Echo" rel="home">Echo</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">文章</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-canvas使用方式以及相关属性" class="post-canvas使用方式以及相关属性 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      canvas使用方式以及相关属性
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2017/02/14/canvas使用方式以及相关属性/#comments" class="leave-reply">Reply</a>
+            
+            <a href="javascript:void(0);" data-url="http://echogong.club/2017/02/14/canvas使用方式以及相关属性/" data-id="ciz4z83s600008gofxhyo4b85" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li><p>Canvas绘制会用到的方法：<br>1、ctx.moveTo(x,y):将绘图工具移动到x,y坐标点<br>2、ctx.lineTo(x,y):将绘图工具从上一个点到x,y点虚描一条线<br>3、ctx.stroke():将虚描的内容使用实线绘制出来。<br>4、ctx.fill();在绘制好的图形中填充颜色（默认黑色）.<br>5、fill会将起始点（moveTo）和结束点(最后一个lineTo)连起来，然后在形成的图形中填充黑色。<br>6、ctx.closePath():将绘图的起始点绘图的结束点进行连接，最后闭合图形。<br>7、ctx.beginPath():开启新路径。<br>8、ctx.setLineDash([数组]) :设置虚线的数组，当划线的时候采用这个数组中的数字作为虚线的数据<br>9、ctx.getLineDash():获取虚线的数组</p>
+</li>
+<li><p>Canvas绘制使用到的属性：<br>1、ctx.lineWidth = 10;  设置绘图的线宽<br>2、ctx.lineCap = “round”;  设置线帽<br>3、ctx.lineJoin = ‘round’;  设置线拐<br>4、ctx.lineDashOffset = 值;  设置虚线的缩进<br>5、ctx.strokeStyle = ‘red’;  设置描边的颜色<br>6、ctx.fillStyle =’green’; 设置填充的颜色</p>
+</li>
+<li><p>非零环绕原则：<br>如果想要对一块区域进行填充，我们需要使用非零环绕原则来判断是否进行填充<br>在这一块区域随便选一个点，随便向任意方向拉出去到外面的一个L线，<br>此时如果画的图的线条穿过L线时是顺时针的，那么就记做+1<br>此时如果画的图的线条穿过L线时是逆时针的，那么就记做-1<br>最后把所有记录的值进行求和，如果为0，代表不填充，其他情况要填充。</p>
+</li>
+<li><p>绘制矩形的三种方法<br>1、ctx.rect(x,y,width,height);  //只会描边，所以必须配合stroke()或fill()。<br>   ctx.stroke();<br>2、ctx.strokeRect(x,y,width,height);  //画一个描边矩形<br>3、ctx.fillRect(x,y,width,height);  //画一个填充矩形</p>
+</li>
+<li><p>清除矩形区域：<br>clearRect(x,y,width,height);</p>
+</li>
+<li><p>清理整块画布内容:<br>1、ctx.c0learRect(0,0,canvas.width,canvas.height);<br>2、canvas.width = canvas.width;//当设置canvas的宽度或者高度的时候，会刷新canvas画布，此时画布中原有的绘制内容，全部都会被刷新（清除）。</p>
+</li>
+<li><p>画圆弧<br>ctx.arc(圆心的x坐标，圆心的y坐标，圆的半径，圆开始的弧度，圆结束的弧度，按照顺时针或逆时针的方向进行绘制);<br>零度角位于圆心水平向右的位置，顺时针为正方向（正弧度），逆时针为负方向（负弧度）。</p>
+</li>
+<li><p>绘制文本<br>1、strokeText(文本字符串,x,y)<br>2、fillText(文本字符串,x,y)<br>默认情况下，文本的左下角对齐x,y坐标点，可以通过font属性来设置文本的大小和字体：ctx.font = ‘字体大小 字体’;<br>文本对其方式：</p>
+<pre><code>A.水平对齐 ctx.textalign  =  &apos;left&apos;,&apos;center&apos;,&apos;right&apos;;
+</code></pre><p> B.基线对象 ctx.textBaseline  = ‘top’,’middle’,’bottom’;</p>
+</li>
+<li><p>画图片<br>drawImage(image,x,y)</p>
+</li>
+<li><p>计时器模型<br>var id = setInterval(function(){<br>   if(){</p>
+<p>   }else{</p>
+<p>   }<br>});</p>
+</li>
+<li><p>变换的概念<br>计算机是利用坐标进行绘图；<br>变换就是一套数学公式，可以记录坐标轴的变化方式；<br>利用坐标抽变换可以绘制出根据不同坐标轴特点形成的图形。<br>canvas变换：<br>   ctx.translate()  平移<br>   ctx.rotate()     旋转<br>   ctx.scale()      伸缩<br>状态保存:save()  状态恢复:restore()</p>
+</li>
+<li><p>konva:是一个完全面向对象的框架,他所有的内容都是通过对象操作完成。<br>  1、3个主要必须用到的对象:</p>
+<pre><code>1)、舞台对象（Stage）
+2)、层对象（Layer）
+3)、矩形对象，圆形对象
+</code></pre><p> 2、使用konva来绘制图形的步骤</p>
+<pre><code>A.引入konva.js库文件
+B.创建一个舞台对象：var stage = 
+     new Konva.Stage({ width:600,height:400,container:divid });
+C.创建一个层对象：var layer = new Konva.Layer();
+D.创建图形对象：var juxing = 
+ new Konva.Rect({x:10,y:10,width:100,height:100,fill:pink});
+E.要把图形对象放到层里去，层要放到舞台对象里去
+</code></pre><p> layer.add(juxing);<br> stage.add(layer);<br> 3、重绘：draw()</p>
+<pre><code>如果将层添加到了舞台上之后，又在层上绘制了一些别的图形，为了让后面绘制的图形可以显示出来我们必须要重绘一次层。例：layer.draw();
+</code></pre></li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/14/canvas使用方式以及相关属性/">
+    <time datetime="2017-02-14T03:30:34.000Z" class="entry-date">
+        2016-9-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas-html5/">canvas html5</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/12/14/函数的四种调用模式/" rel="next">函数的四种调用模式 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-canvas使用方式以及相关属性" data-title="canvas使用方式以及相关属性" data-url="http://echogong.club/2017/02/14/canvas使用方式以及相关属性/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:'true'};
+    (function() {
+	  var ds = document.createElement('script');
+	  ds.type = 'text/javascript';ds.async = true;
+	  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	  ds.charset = 'UTF-8';
+	  (document.getElementsByTagName('head')[0]
+	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- 多说公共JS代码 end -->
+</section>
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/14/canvas使用方式以及相关属性/">canvas使用方式以及相关属性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/函数的四种调用模式/">函数的四种调用模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/13/webpack常用命令行/">webpack常用命令行</a>
+          </li>
+        
+          <li>
+            <a href="/0201/10/14/markdown基本语法/">markdown基本语法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas-html5/">canvas html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-面向对象/">javascript 面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/canvas-html5/" style="font-size: 10px;">canvas html5</a> <a href="/tags/javascript-面向对象/" style="font-size: 10px;">javascript 面向对象</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 echo gong
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
